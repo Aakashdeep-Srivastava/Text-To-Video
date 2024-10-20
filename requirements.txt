@@ -1,0 +1,9 @@
+google-generativeai
+python-pptx
+python-dotenv
+comtypes
+streamlit
+requests
+moviepy
+Pillow
+edge-tts
