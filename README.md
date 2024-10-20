@@ -60,7 +60,7 @@ This project is an AI-powered video generator that creates slides and combines t
 
 ```mermaid
 graph TD
-    A[User Input] --> B[Text-to-Speech API]
+    A[User Input] --> B[Text-to-Speech]
     B --> C[Slide Generation]
     C --> D[Fetch Images]
     D --> E[Combine Slides with Audio]
@@ -68,8 +68,8 @@ graph TD
     F --> G[Final Video Output]
 
     subgraph Services
-        B[Text-to-Speech API<br/>(Azure)]
-        D[Fetch Images<br/>(Unsplash)]
+        B[Text-to-Speech]
+        D[Fetch Images]
         F[Avatar Animation]
     end
 
@@ -77,12 +77,6 @@ graph TD
         C[Slide Generation]
         E[Combine Slides with Audio]
     end
-
-    classDef default fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef services fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef utils fill:#bfb,stroke:#333,stroke-width:2px;
-    class B,D,F services;
-    class C,E utils;
 ```
 
 ### Architecture Overview:
