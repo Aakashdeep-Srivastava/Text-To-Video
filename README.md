@@ -1,86 +1,110 @@
-# PowerPoint Presentation Generator with Gemini Pro
+# AI Video Generator
 
-This project is a Streamlit-based web application that generates PowerPoint presentations using Google's Gemini Pro AI model. Users can input a topic, and the application will automatically create a presentation with relevant slide titles and content.
+This project is an AI-powered video generator that creates slides and combines them with synthesized audio based on user input text. The generated video includes a dynamic avatar that responds to the narration. The project utilizes services such as Unsplash for images, Microsoft Azure's text-to-speech for audio, and various utilities for image processing and video generation.
+
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Architecture](#project-architecture)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
-
-- Generate slide titles and content using Gemini Pro AI
-- Create PowerPoint presentations automatically
-- Easy-to-use web interface built with Streamlit
-- Customizable font sizes for slide titles and content
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- Python 3.7 or higher
-- A Google Cloud account with access to the Gemini Pro API
-- Git (optional, for cloning the repository)
+- **Text-to-Slide Generation**: Automatically generates slide content based on user input.
+- **Text-to-Speech**: Synthesizes speech from text using Microsoft Azure TTS API.
+- **Unsplash API**: Fetches relevant images based on keywords in the slide content.
+- **Slide-to-Video**: Combines slides and audio into a final video presentation.
+- **Avatar Animation**: Creates an animated avatar that moves based on the audio input.
 
 ## Installation
 
-1. Clone the repository (or download the source code):
-   ```
-   git clone https://github.com/yourusername/ppt-generator-gemini-pro.git
-   cd ppt-generator-gemini-pro
-   ```
-
-2. Create a virtual environment (optional but recommended):
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/ai-video-generator.git
+   cd ai-video-generator
    ```
 
-3. Install the required packages:
-   ```
+2. **Install Dependencies**:
+   Make sure to have Python 3.8+ installed, then install the required libraries using pip:
+   ```bash
    pip install -r requirements.txt
    ```
 
-4. Set up your Google Cloud project and obtain an API key for Gemini Pro.
+3. **Set Up Environment Variables**:
+   Create a `.env` file in the project root directory and add the following API keys:
+   ```plaintext
+   UNSPLASH_ACCESS_KEY=your_unsplash_api_key
+   AZURE_TTS_KEY=your_azure_tts_key
+   IMAGEMAGICK_PATH=C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe  # Adjust the path according to your setup
+   ```
 
-5. Create a `.env` file in the project root directory and add your API key:
-   ```
-   GOOGLE_API_KEY=your_api_key_here
-   ```
+4. **Install ImageMagick**:
+   Download and install [ImageMagick](https://imagemagick.org/script/download.php) and ensure it's added to your system's PATH.
 
 ## Usage
 
-1. Run the Streamlit app:
-   ```
+1. **Run the Streamlit App**:
+   Run the following command to start the application:
+   ```bash
    streamlit run app.py
    ```
 
-2. Open your web browser and go to `http://localhost:8501` (or the URL provided in the terminal).
+2. **Generate a Video**:
+   - Enter your text in the input box.
+   - Click "Generate Video" to process your input and create a video.
+   - Download or view the generated video directly from the Streamlit interface.
 
-3. Enter a topic for your presentation in the text input field.
+## Project Architecture
 
-4. Click the "Generate Presentation" button.
+```mermaid
+graph TD;
+    A[User Input] --> B[Text-to-Speech API (Azure)]
+    B --> C[Slide Generation]
+    C --> D[Fetch Images (Unsplash)]
+    D --> E[Combine Slides with Audio]
+    E --> F[Avatar Animation]
+    F --> G[Final Video Output]
 
-5. Wait for the presentation to be generated. This may take a few moments depending on the complexity of the topic.
+    subgraph Services
+        B
+        D
+        F
+    end
 
-6. Once the presentation is ready, click the download link to get your PowerPoint file.
+    subgraph Utils
+        C
+        E
+    end
+```
 
-## Customization
+### Architecture Overview:
+- **User Input**: The user inputs text that is converted into slides and audio narration.
+- **Text-to-Speech API**: Converts the input text to speech using Microsoft Azure's TTS service.
+- **Slide Generation**: Automatically generates titles, bullet points, and relevant slide content.
+- **Fetch Images**: Using keywords extracted from the slide content, the Unsplash API fetches relevant images.
+- **Combine Slides with Audio**: Slides are merged with the generated audio using MoviePy to create the video.
+- **Avatar Animation**: The avatar responds to the audio, adding dynamism to the video presentation.
+- **Final Output**: The generated video is made available for download.
 
-You can customize the appearance of the generated presentations by modifying the following constants in the `app.py` file:
-
-- `TITLE_FONT_SIZE`: Font size for slide titles
-- `SLIDE_FONT_SIZE`: Font size for slide content
+## Technologies Used
+- **Python**: Core programming language used for backend logic.
+- **Streamlit**: Frontend UI for generating the video through a web interface.
+- **Microsoft Azure TTS API**: Converts text to human-like speech.
+- **Unsplash API**: Fetches relevant images for slide backgrounds.
+- **Pillow**: For image processing.
+- **MoviePy**: For video generation and combining slides with audio.
+- **ImageMagick**: For image manipulation and conversion.
+- **Mermaid**: For visualizing the project architecture.
 
 ## Contributing
-
-Contributions to this project are welcome. Please fork the repository and submit a pull request with your changes.
+We welcome contributions! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Google for providing the Gemini Pro API
-- Streamlit for the excellent web app framework
-- python-pptx for PowerPoint file generation capabilities
-
-## Contact
-
-If you have any questions or feedback, please open an issue on the GitHub repository.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
