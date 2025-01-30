@@ -98,6 +98,9 @@ graph TD
 - **ImageMagick**: For image manipulation and conversion.
 - **Mermaid**: For visualizing the project architecture.
 
+## Screenshot
+![App Screenshot](https://github.com/Aakashdeep-Srivastava/Text-To-Video/blob/main/screenshot.png)
+
 ## Contributing
 We welcome contributions! Please follow these steps:
 1. Fork the repository.
