@@ -11,7 +11,7 @@ from services.gemini_service import generate_slide_content, parse_slide_content
 from utils.avatar_utils import generate_avatar_animation
 # Ensure ImageMagick is properly configured
 from moviepy.config import change_settings
-change_settings({"IMAGEMAGICK_BINARY": "C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"})  # Replace with your actual path
+change_settings({"IMAGEMAGICK_BINARY": "ImageMagick-7.1.1-Q16-HDRI\magick.exe"})  # Replace with your actual path
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
