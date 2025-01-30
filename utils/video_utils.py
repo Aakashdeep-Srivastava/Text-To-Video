@@ -1,7 +1,7 @@
 import os
 from moviepy.editor import ImageClip, concatenate_videoclips, CompositeVideoClip, AudioFileClip, concatenate_audioclips, TextClip, ColorClip
 from moviepy.config import change_settings
-change_settings({"IMAGEMAGICK_BINARY": "C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"})
+change_settings({"IMAGEMAGICK_BINARY": "ImageMagick-7.1.1-Q16-HDRI\magick.exe"})
 
 def create_slide(title, points, image_path, audio_file):
     # Define slide dimensions (16:9 aspect ratio)
