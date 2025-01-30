@@ -15,6 +15,6 @@ def generate_avatar_animation(audio_paths):
         frames.append(Image.fromarray(frame))
     
     # Save as gif
-    frames[0].save("avatar_animation.gif", save_all=True, append_images=frames[1:], duration=100, loop=0)
+    frames[0].save("avatar.png", save_all=True, append_images=frames[1:], duration=100, loop=0)
     
-    return "avatar_animation.gif"
+    return "avatar.png"

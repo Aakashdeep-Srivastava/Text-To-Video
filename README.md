@@ -36,8 +36,8 @@ This project is an AI-powered video generator that creates slides and combines t
    Create a `.env` file in the project root directory and add the following API keys:
    ```plaintext
    UNSPLASH_ACCESS_KEY=your_unsplash_api_key
-   AZURE_TTS_KEY=your_azure_tts_key
-   IMAGEMAGICK_PATH=C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe  # Adjust the path according to your setup
+   Google Gemini API =your_gemini_key
+   IMAGEMAGICK_PATH=ImageMagick-7.1.1-Q16-HDRI\magick.exe  # Adjust the path according to your setup
    ```
 
 4. **Install ImageMagick**:
