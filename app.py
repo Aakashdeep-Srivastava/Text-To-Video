@@ -16,7 +16,9 @@ change_settings({"IMAGEMAGICK_BINARY": "C:\Program Files\ImageMagick-7.1.1-Q16-H
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-
+VOICES = [
+    'Elon Musk', 'Narendra Modi', 'HC Verma'
+]
 def load_image(image_path):
     try:
         return Image.open(image_path)
@@ -39,7 +41,7 @@ def main():
             st.write("Logo not found. Please check the image path.")
 
        
-        #selected_voice = st.selectbox("Select a voice:", VOICES)
+        selected_voice = st.selectbox("Select a voice:", VOICES)
 
         # AI Avatar
         #st.subheader("Professor Proton")

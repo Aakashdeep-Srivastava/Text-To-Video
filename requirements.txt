@@ -7,3 +7,16 @@ requests
 moviepy
 Pillow
 edge-tts
+numpy 
+matplotlib 
+seaborn 
+plotly 
+sympy 
+scipy 
+rdkit 
+chempy 
+biopython 
+networkx 
+graphviz 
+vpython 
+pandas 
